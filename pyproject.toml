@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "GeMU"
+version = "0.0.1"
+authors = [
+  { name="ljy9912", email="lijiayun22@mails.tsinghua.edu.cn" },
+]
+description = "Activation function GeMU implemented based on PyTorch"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/ljy9912/GeMU"
+Issues = "https://github.com/ljy9912/GeMU/issues"
