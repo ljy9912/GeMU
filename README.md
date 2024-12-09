@@ -2,6 +2,8 @@
 
 This Python package implements the **GeMU (Generalized Multivariate projection Unit)** model using PyTorch. It is designed to process multi-dimensional input data using a **cone-based projection** method. The package includes a class `soc`, which can be used for various computations such as dimensional projection, angle adjustments, and norm-based filtering.
 
+This activation function is proposed in the paper [Generalized Activation via Multivariate Projection](https://arxiv.org/abs/2309.17194).
+
 ## Installation
 
 You can install the GeMU package using `pip` or by cloning the repository.
@@ -22,7 +24,7 @@ import torch
 from GeMU import soc
 
 # Initialize the model
-model = soc(angle_tan=1., cone_dim=2)
+model = soc(cone_dim=2)
 
 # Define input tensor (batch_size * (width * height) * feature_dimension)
 x = torch.randn(8, 16, 64).cuda()  # Example tensor
@@ -34,7 +36,7 @@ output = model(x)
 The `soc` class implements a neural network module that operates on multi-dimensional input data. It projects input features onto a cone space and performs norm-based operations with several configurable parameters.
 
 #### Key Parameters:
-- `angle_tan`: The tangent of the cone's half-apex angle. Default is 1.
+- `angle_tan`: The initialization of the tangent of the cone's half-apex angle. Default is 1.
 - `cone_dim`: The dimensionality of the cone projection. Usually set to 2 or 3.
 
 #### Key Methods:
@@ -50,7 +52,7 @@ import torch
 from GeMU import soc
 
 # Initialize the model with a specified tan(angle) and cone dimension
-model = soc(angle_tan=1., cone_dim=2)
+model = soc(cone_dim=2)
 
 # Example input: batch_size = 8, feature dimension = 64, cone projection in 2D
 x = torch.randn(8, 16, 64).cuda()
